@@ -1,0 +1,15 @@
+.banner-container {
+  height: 100vh;
+  background-image: url('https://shop.redq.now.sh/_next/static/images/grocery-f1565ac25de02b9295dccc2da13004ab.png');
+  background-color: #fff;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .banner-content {
+  }
+}
