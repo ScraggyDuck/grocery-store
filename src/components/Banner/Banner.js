@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 import './Banner.scss';
 
 export default function Banner() {
@@ -10,6 +11,9 @@ export default function Banner() {
           Get your healthy foods & snacks delivered at your doorsteps all day
           everyday
         </h4>
+        <div className='search-bar-container mt-5'>
+          <SearchBar isTop={false} />
+        </div>
       </div>
     </div>
   );

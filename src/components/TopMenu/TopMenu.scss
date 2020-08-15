@@ -7,6 +7,12 @@
   transition: all 0.3s ease;
   height: 100px;
 
+  .search-bar-container {
+    height: 50px;
+    width: 700px;
+    margin-left: 50px;
+  }
+
   .nav-link {
     font-size: 15px;
     font-weight: 700;
@@ -14,6 +20,8 @@
     line-height: 1.2em;
     transition: all 0.3s ease;
     margin: 0 10px;
+    width: 120px;
+    text-align: center;
 
     &:hover {
       color: rgb(0, 158, 127) !important;
