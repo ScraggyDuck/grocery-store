@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
-import * as ProductServices from '../../services/productServices';
 import Product from '../Product/Product';
 import './Products.scss';
 
-export default function Products() {
-  const [products, setProducts] = useState([]);
-  const [limit, setLimit] = useState(8);
+export default function Products({ ...props }) {
+  const { products, loadMore } = props;
 
   const onLoadMoreClick = () => {
-    console.log('lalal');
-    setLimit(limit + 8);
+    loadMore();
   };
 
   const renderProductList = () => {
@@ -22,22 +19,6 @@ export default function Products() {
     ));
     return result;
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const filters = { limit, offset: 0 };
-      try {
-        const {
-          data: { data: productList },
-        } = await ProductServices.getProducts(filters);
-        setProducts(productList);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchData();
-  }, [limit]);
 
   return (
     <div className='products row m-0 p-2'>

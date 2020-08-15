@@ -11,6 +11,7 @@
     height: 50px;
     width: 700px;
     margin-left: 50px;
+    display: none;
   }
 
   .nav-link {
@@ -130,4 +131,8 @@
 .isVisible {
   background-color: #fff !important;
   border-bottom: 1px solid rgb(241, 241, 241);
+
+  .search-bar-container {
+    display: block;
+  }
 }

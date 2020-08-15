@@ -1,10 +1,25 @@
-import React from 'react';
+import classNames from 'classnames';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import './SearchBar.scss';
-import classNames from 'classnames';
 
 export default function SearchBar({ ...props }) {
   const { isTop } = props;
+  const [keyword, setKeyword] = useState('');
+
+  const onChangeSearchBar = (event) => {
+    if (event.charCode !== 13) {
+      const value = event.target.value;
+      setKeyword(value);
+    } else {
+      console.log('Enter');
+    }
+  };
+
+  const onClearInput = () => {
+    setKeyword('');
+  };
+
   return (
     <div className={classNames('search-bar', { top: isTop })}>
       <div className='prepend'>
@@ -19,10 +34,15 @@ export default function SearchBar({ ...props }) {
           type='text'
           placeholder='Search your books from here'
           className='search-input'
+          value={keyword}
+          onChange={onChangeSearchBar}
+          onKeyPress={onChangeSearchBar}
         />
-        <Button type='button' className='btn-clear'>
-          <i className='fa fa-times' aria-hidden='true'></i>
-        </Button>
+        {keyword && (
+          <Button type='button' className='btn-clear' onClick={onClearInput}>
+            <i className='fa fa-times' aria-hidden='true'></i>
+          </Button>
+        )}
       </div>
 
       <Button type='button' className='btn-search'>

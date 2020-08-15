@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Banner from '../../components/Banner/Banner';
-import Products from '../../components/Products/Products';
+import ProductsContainer from '../../containers/ProductsContainer';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Offer from '../../components/Offer/Offer';
 
@@ -18,7 +18,7 @@ export default function Home() {
             <Sidebar />
           </div>
           <div className='col-xl-10 col-lg-9 col-md-8 p-0'>
-            <Products />
+            <ProductsContainer />
           </div>
         </div>
       </div>
