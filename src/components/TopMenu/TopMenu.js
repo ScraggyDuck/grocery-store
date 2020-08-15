@@ -17,10 +17,7 @@ export default function TopMenu() {
         </Nav>
       </Navbar.Collapse>
       <Dropdown className='mr-3'>
-        <Dropdown.Toggle
-          variant='success'
-          alignLeft
-          id='dropdown-menu-align-right'>
+        <Dropdown.Toggle variant='success' id='dropdown-menu-align-right'>
           English
         </Dropdown.Toggle>
 

@@ -1,24 +1,24 @@
 .sidebar {
-    position: sticky;
-    top: 50px;
+  position: sticky;
+  top: 50px;
 
-    ul {
-        list-style: none;
-        padding: 40px 30px;
-        font-weight: bold;
-        font-size: 1rem;
-        .sidebar-item {
-            cursor: pointer;
-            padding: 0 0 20px 0;
-            color: rgb(13, 17, 54);
-            transition: all 0.2s ease;
+  ul {
+    list-style: none;
+    padding: 40px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    .sidebar-item {
+      cursor: pointer;
+      padding: 0 0 30px 0;
+      color: rgb(13, 17, 54);
+      transition: all 0.2s ease;
 
-            &:hover {
-                img {
-                    color: rgb(0, 158, 127);
-                }
-                color: rgb(0, 158, 127);
-            }
+      &:hover {
+        img {
+          color: rgb(0, 158, 127);
         }
+        color: rgb(0, 158, 127);
+      }
     }
+  }
 }

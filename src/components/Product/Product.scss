@@ -3,10 +3,23 @@ $border-radius: 7px;
   margin: 15px;
   cursor: pointer;
   border-radius: $border-radius !important;
+  border: none !important;
+  overflow: hidden;
+
+  -webkit-box-shadow: 4px 3px 21px -10px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 4px 3px 21px -10px rgba(0, 0, 0, 0.59);
+  box-shadow: 4px 3px 21px -10px rgba(0, 0, 0, 0.59);
 
   .card-img-top {
     border-top-left-radius: $border-radius !important;
     border-top-right-radius: $border-radius !important;
+    transition: all 0.3s ease;
+    height: 230px;
+    width: auto;
+    object-fit: contain;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   &-title {
     font-size: 15px;
