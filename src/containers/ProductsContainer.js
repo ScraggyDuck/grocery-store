@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actFetchAllProductsRequest, actLoadMore } from '../actions/index';
 import Products from '../components/Products/Products';
+import queryString from 'query-string';
 
 class ProductsContainer extends Component {
   componentDidMount() {
@@ -11,16 +12,23 @@ class ProductsContainer extends Component {
 
   async componentDidUpdate(preProps, preState) {
     const {
-      products: { limit, keyword },
+      products: { limit, keyword, category },
     } = this.props;
     const {
-      products: { limit: preLimit, keyword: preKeyword },
+      products: { limit: preLimit, keyword: preKeyword, category: preCategory },
     } = preProps;
-    if (preLimit !== limit || preKeyword !== keyword) {
+    if (
+      preLimit !== limit ||
+      preKeyword !== keyword ||
+      category !== preCategory
+    ) {
       const { history } = this.props;
+      let filters = keyword ? { keyword } : {};
+      filters = category ? { ...filters, category } : filters;
+      const query = queryString.stringify(filters);
       history.push({
         ...history.location,
-        search: keyword ? `?keyword=${keyword}` : '',
+        search: query,
       });
       this.props.fetchAllProducts(this.props.products);
     }

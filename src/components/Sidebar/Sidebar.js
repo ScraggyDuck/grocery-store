@@ -1,65 +1,48 @@
-import React from 'react';
-
-import './Sidebar.scss';
-
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { ReactSVG } from 'react-svg';
 import icons from '../../images/icons';
-
-const sidebarItems = [
-  {
-    icon: icons.fruits,
-    title: 'Fruits & Vegetables',
-  },
-  {
-    icon: icons.meats,
-    title: 'Meats & Fish',
-  },
-  {
-    icon: icons.snacks,
-    title: 'Snacks',
-  },
-  {
-    icon: icons.petcare,
-    title: 'Pet Care',
-  },
-  {
-    icon: icons.home,
-    title: 'Home & Cleaning',
-  },
-  {
-    icon: icons.dairy,
-    title: 'Dairy',
-  },
-  {
-    icon: icons.cooking,
-    title: 'Cooking',
-  },
-  {
-    icon: icons.breakfast,
-    title: 'Breakfast',
-  },
-  {
-    icon: icons.beverage,
-    title: 'Beverage',
-  },
-  {
-    icon: icons.beauty,
-    title: 'Beauty & Health',
-  },
-];
-
-const renderSidebarItem = (arr) => {
-  return arr.map((item, index) => (
-    <li className='sidebar-item' key={index}>
-      <img className='img-fluid mr-2' src={item.icon} alt={item.title} />
-      {item.title}
-    </li>
-  ));
-};
+import './Sidebar.scss';
+import * as BaseValue from '../../constants/BaseValue';
+import { useDispatch } from 'react-redux';
+import { actSetCategory } from '../../actions/index';
 
 export default function Sidebar() {
+  const [categories, setCategories] = useState([]);
+  const dispatch = useDispatch();
+  const setCategory = (category) => {
+    dispatch(actSetCategory(category));
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const {
+        data: {
+          data: { data: categoryList },
+        },
+      } = await axios.get(`${BaseValue.API_URL}/${BaseValue.GET_CATEGORIES}`);
+      setCategories(categoryList);
+    };
+    fetchData();
+  }, []);
+
+  const renderSidebarItem = (arr) => {
+    let result = null;
+    result = arr.map((item) => (
+      <li
+        className='sidebar-item'
+        key={item.slug}
+        onClick={() => setCategory(item.slug)}>
+        <ReactSVG src={icons[item.icon]} className='sidebar-icon mr-2' />
+        {item.title}
+      </li>
+    ));
+    return result;
+  };
+
   return (
     <div className='sidebar'>
-      <ul>{renderSidebarItem(sidebarItems)}</ul>
+      <ul>{renderSidebarItem(categories)}</ul>
     </div>
   );
 }

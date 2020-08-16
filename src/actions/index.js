@@ -3,10 +3,13 @@ import * as ProductServices from '../services/productServices';
 
 export const actFetchAllProductsRequest = (products) => {
   return async (dispatch) => {
-    const { limit, keyword } = products;
+    const { limit, keyword, category } = products;
     let filters = { limit, offset: 0 };
     if (keyword) {
       filters = { ...filters, keyword };
+    }
+    if (category) {
+      filters = { ...filters, category };
     }
     const {
       data: { data: productList },
@@ -27,4 +30,9 @@ export const actLoadMore = () => ({
 export const actSetKeyword = (keyword) => ({
   type: Types.SET_KEYWORD,
   keyword,
+});
+
+export const actSetCategory = (category) => ({
+  type: Types.SET_CATEGORY,
+  category,
 });

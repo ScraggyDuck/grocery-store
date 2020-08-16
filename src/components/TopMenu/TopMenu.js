@@ -59,18 +59,18 @@ export default function TopMenu() {
       <Dropdown className='mr-3'>
         <Dropdown.Toggle variant='success' id='dropdown-menu-align-right'>
           <div className='d-flex align-items-center'>
-            <img className='icon mr-2' src={icons.english} alt='english' />{' '}
+            <img className='icon mr-2' src={icons.English} alt='english' />{' '}
             English
           </div>
         </Dropdown.Toggle>
 
         <Dropdown.Menu alignRight={true} className='p-0'>
           <Dropdown.Item href='#/action-1'>
-            <img className='dropdown-icon' src={icons.english} alt='english' />
+            <img className='dropdown-icon' src={icons.English} alt='english' />
             English
           </Dropdown.Item>
           <Dropdown.Item href='#/action-2'>
-            <img className='dropdown-icon' src={icons.german} alt='german' />
+            <img className='dropdown-icon' src={icons.German} alt='german' />
             German
           </Dropdown.Item>
         </Dropdown.Menu>

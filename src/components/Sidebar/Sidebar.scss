@@ -8,14 +8,20 @@
     font-weight: bold;
     font-size: 1rem;
     .sidebar-item {
+      .sidebar-icon {
+        display: inline-block;
+        svg path {
+          transition: all 0.2s ease;
+        }
+      }
       cursor: pointer;
       padding: 0 0 30px 0;
       color: rgb(13, 17, 54);
       transition: all 0.2s ease;
 
       &:hover {
-        img {
-          color: rgb(0, 158, 127);
+        .sidebar-icon svg path {
+          fill: rgb(0, 158, 127);
         }
         color: rgb(0, 158, 127);
       }

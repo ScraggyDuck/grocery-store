@@ -4,11 +4,12 @@ const initialState = {
   data: [],
   limit: 12,
   keyword: '',
+  category: '',
 };
 
 const products = (state = initialState, action) => {
   let newState = {};
-  let { products, keyword } = action;
+  let { products, keyword, category } = action;
   switch (action.type) {
     case Types.FETCH_PRODUCTS:
       newState = {
@@ -27,6 +28,12 @@ const products = (state = initialState, action) => {
       newState = {
         ...state,
         keyword,
+      };
+      return newState;
+    case Types.SET_CATEGORY:
+      newState = {
+        ...state,
+        category,
       };
       return newState;
     default:
