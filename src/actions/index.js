@@ -11,10 +11,8 @@ export const actFetchAllProductsRequest = (products) => {
     if (category) {
       filters = { ...filters, category };
     }
-    const {
-      data: { data: productList },
-    } = await ProductServices.getProducts(filters);
-    dispatch(actFetchAllProducts(productList));
+    const { data } = await ProductServices.getProducts(filters);
+    dispatch(actFetchAllProducts(data));
   };
 };
 
@@ -35,4 +33,8 @@ export const actSetKeyword = (keyword) => ({
 export const actSetCategory = (category) => ({
   type: Types.SET_CATEGORY,
   category,
+});
+
+export const actSetDefault = () => ({
+  type: Types.SET_DEFAULT,
 });

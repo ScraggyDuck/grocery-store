@@ -17,6 +17,7 @@ class ProductsContainer extends Component {
     const {
       products: { limit: preLimit, keyword: preKeyword, category: preCategory },
     } = preProps;
+
     if (
       preLimit !== limit ||
       preKeyword !== keyword ||
@@ -36,8 +37,13 @@ class ProductsContainer extends Component {
 
   render() {
     const { products, loadMore } = this.props;
-
-    return <Products products={products.data} loadMore={loadMore} />;
+    return (
+      <Products
+        products={products.data}
+        loadMore={loadMore}
+        isLoadMore={products.isLoadMore}
+      />
+    );
   }
 }
 

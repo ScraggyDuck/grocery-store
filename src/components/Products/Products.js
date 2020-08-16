@@ -4,7 +4,7 @@ import Product from '../Product/Product';
 import './Products.scss';
 
 export default function Products({ ...props }) {
-  const { products, loadMore } = props;
+  const { products, loadMore, isLoadMore } = props;
 
   const onLoadMoreClick = () => {
     loadMore();
@@ -24,12 +24,14 @@ export default function Products({ ...props }) {
     <div className='products row m-0 p-2'>
       {products && renderProductList()}
       <div className='col-12 text-center'>
-        <Button
-          type='button'
-          onClick={onLoadMoreClick}
-          className='btn-load-more my-5'>
-          Load more
-        </Button>
+        {isLoadMore && (
+          <Button
+            type='button'
+            onClick={onLoadMoreClick}
+            className='btn-load-more my-5'>
+            Load more
+          </Button>
+        )}
       </div>
     </div>
   );

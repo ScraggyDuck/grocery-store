@@ -5,13 +5,14 @@ import icons from '../../images/icons';
 import './Sidebar.scss';
 import * as BaseValue from '../../constants/BaseValue';
 import { useDispatch } from 'react-redux';
-import { actSetCategory } from '../../actions/index';
+import { actSetCategory, actSetDefault } from '../../actions/index';
 
 export default function Sidebar() {
   const [categories, setCategories] = useState([]);
   const dispatch = useDispatch();
   const setCategory = (category) => {
     dispatch(actSetCategory(category));
+    dispatch(actSetDefault());
   };
 
   useEffect(() => {
