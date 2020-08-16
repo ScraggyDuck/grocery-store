@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from '../SearchBar/SearchBar';
+import SearchBarContainer from '../../containers/SearchBarContainer';
 import './Banner.scss';
 
 export default function Banner() {
@@ -12,7 +12,7 @@ export default function Banner() {
           everyday
         </h4>
         <div className='search-bar-container mt-5'>
-          <SearchBar isTop={false} />
+          <SearchBarContainer isTop={false} />
         </div>
       </div>
     </div>

@@ -1,17 +1,18 @@
 import React from 'react';
 import Home from './pages/Home/Home';
+import PageNotFound from './pages/404/404';
 
 const routes = [
   {
     path: '/',
     exact: true,
-    main: () => <Home />,
+    main: ({ history }) => <Home history={history} />,
   },
-  // {
-  //   path: "/products/:categories",
-  //   exact: false,
-  //   main: ({match}) => <Products match={match}/>
-  // },
+  {
+    path: '*',
+    exact: false,
+    main: () => <PageNotFound />,
+  },
 ];
 
 export default routes;

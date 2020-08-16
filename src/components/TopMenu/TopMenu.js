@@ -3,7 +3,7 @@ import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import './TopMenu.scss';
 import classNames from 'classnames';
 import icons from '../../images/icons';
-import SearchBar from '../SearchBar/SearchBar';
+import SearchBarContainer from '../../containers/SearchBarContainer';
 
 export default function TopMenu() {
   const [isHide, setHide] = useState(false);
@@ -43,7 +43,7 @@ export default function TopMenu() {
       </Navbar.Brand>
 
       <div className='search-bar-container'>
-        <SearchBar isTop={true} />
+        <SearchBarContainer isTop={true} />
       </div>
 
       <Navbar.Toggle aria-controls='basic-navbar-nav' />

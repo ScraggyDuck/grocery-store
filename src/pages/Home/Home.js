@@ -4,12 +4,14 @@ import Banner from '../../components/Banner/Banner';
 import ProductsContainer from '../../containers/ProductsContainer';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Offer from '../../components/Offer/Offer';
+import TopMenu from '../../components/TopMenu/TopMenu';
 
 import './Home.scss';
 
-export default function Home() {
+export default function Home({ ...props }) {
   return (
     <div>
+      <TopMenu />
       <Banner />
       <div className='container-fluid p-0 main'>
         <Offer />
@@ -18,7 +20,7 @@ export default function Home() {
             <Sidebar />
           </div>
           <div className='col-xl-10 col-lg-9 col-md-8 p-0'>
-            <ProductsContainer />
+            <ProductsContainer history={props.history} />
           </div>
         </div>
       </div>

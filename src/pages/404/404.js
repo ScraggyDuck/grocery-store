@@ -1,0 +1,11 @@
+import React from 'react';
+import './404.scss';
+
+export default function PageNotFound() {
+  return (
+    <div className='container-fluid d-flex p-0 justify-content-center align-items-center'>
+      <h1>404</h1>
+      <span>The page could not be found.</span>
+    </div>
+  );
+}
