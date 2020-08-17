@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import icons from '../../images/icons';
-import './Sidebar.scss';
+import '../../styles/client/components/Sidebar.scss';
 import * as BaseValue from '../../constants/BaseValue';
 import { useDispatch } from 'react-redux';
 import { actSetCategory, actSetDefault } from '../../actions/index';

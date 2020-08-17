@@ -12,8 +12,10 @@
     height: 38px;
     color: rgb(0, 158, 127);
     background-color: rgb(255, 255, 255);
-    border-radius: 6px;
     border: 1px solid rgb(241, 241, 241);
+    border-radius: 6px;
+    outline: none;
+    box-shadow: none !important;
 
     &:hover,
     &:focus,
@@ -21,8 +23,6 @@
       color: #fff;
       background-color: rgb(0, 158, 127) !important;
       border-color: rgb(241, 241, 241) !important;
-      outline: none !important;
-      box-shadow: none !important;
     }
   }
 }

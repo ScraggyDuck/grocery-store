@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, Button, Badge } from 'react-bootstrap';
-import './ProductDetail.scss';
+import { Modal, Button, Badge, Container, Row, Col } from 'react-bootstrap';
+import '../../styles/client/pages/ProductDetail.scss';
 import * as ProductServices from '../../services/productServices';
 import Slider from 'react-slick';
 
@@ -41,29 +41,32 @@ export default function ProductDetail({ ...props }) {
   console.log(product);
 
   return (
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Body>
-        {product && (
-          <div className='container-fluid'>
-            <div className='row'>
-              <div className='col-md-6'>
+    <Container>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Body className='w-100 p-5'>
+          {product && (
+            <Row>
+              <Button className='btn-close' onClick={handleClose}>
+                X
+              </Button>
+              <Col md={6} xs={12}>
                 <Slider {...settings}>
                   {product.gallery &&
                     product.gallery.map((img, index) => (
-                      <div key={index}>
+                      <div className='w-100' key={index}>
                         <img
-                          className='img-fluid'
+                          className='img-fluid w-100'
                           src={img}
                           alt={`gallery-${index}`}
                         />
                       </div>
                     ))}
                 </Slider>
-              </div>
-              <div className='col-md-6'>
-                <div className='product-header d-flex'>
-                  <h1 className='product-title'>{product.title}</h1>
-                  <div className='product-price'>{product.price}</div>
+              </Col>
+              <Col md={6}>
+                <div className='product-header d-flex align-items-center mb-2'>
+                  <div className='product-title mr-3'>{product.title}</div>
+                  <div className='product-price'>{product.price}$</div>
                 </div>
                 <div className='product-unit'>{product.unit}</div>
                 <div className='product-description'>{product.description}</div>
@@ -73,19 +76,22 @@ export default function ProductDetail({ ...props }) {
                     aria-hidden='true'></i>
                   Cart
                 </Button>
-                <div className='product-categories'>
+                <div className='product-categories mt-3'>
                   {product.categories &&
                     product.categories.map((category) => (
-                      <Badge key={category} variant='secondary'>
+                      <Badge
+                        key={category}
+                        variant='secondary'
+                        className='px-3 py-1 mr-2'>
                         {category}
                       </Badge>
                     ))}
                 </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </Modal.Body>
-    </Modal>
+              </Col>
+            </Row>
+          )}
+        </Modal.Body>
+      </Modal>
+    </Container>
   );
 }

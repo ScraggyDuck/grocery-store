@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
-import './TopMenu.scss';
+import '../../styles/client/components/TopMenu.scss';
 import classNames from 'classnames';
 import icons from '../../images/icons';
 import SearchBarContainer from '../../containers/SearchBarContainer';
@@ -38,7 +38,7 @@ export default function TopMenu() {
       className={classNames({ hide: isHide, isVisible: isVisible })}
       expand='lg'
       fixed='top'>
-      <Navbar.Brand href='#home'>
+      <Navbar.Brand href='/'>
         <img className='img-fluid' src={link} alt='logo' />
       </Navbar.Brand>
 

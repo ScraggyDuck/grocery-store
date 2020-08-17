@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actFetchAllProductsRequest, actLoadMore } from '../actions/index';
-import Products from '../components/Products/Products';
+import Products from '../components/client/Products';
 import queryString from 'query-string';
 
 class ProductsContainer extends Component {

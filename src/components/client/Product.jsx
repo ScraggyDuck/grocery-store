@@ -1,5 +1,5 @@
 import React from 'react';
-import './Product.scss';
+import '../../styles/client/components/Product.scss';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 

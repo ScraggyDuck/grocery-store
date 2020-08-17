@@ -1,6 +1,6 @@
 import React from 'react';
-import PageNotFound from './pages/404/404';
-import Home from './pages/Home/Home';
+import PageNotFound from '../pages/client/PageNotFound';
+import Home from '../pages/client/Home';
 
 const routes = [
   {

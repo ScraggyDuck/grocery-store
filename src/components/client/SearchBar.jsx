@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import './SearchBar.scss';
+import '../../styles/client/components/SearchBar.scss';
 
 export default function SearchBar({ ...props }) {
   const { isTop, setKeyword } = props;

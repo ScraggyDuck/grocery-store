@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-import './ProductsLoading.scss';
+import '../../styles/client/components/ProductsLoading.scss';
 
 export default function () {
   return (

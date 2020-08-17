@@ -1,5 +1,5 @@
 import React from 'react';
-import './404.scss';
+import '../../styles/client/pages/404.scss';
 
 export default function PageNotFound() {
   return (

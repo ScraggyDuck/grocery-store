@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductDetail from '../ProductDetail/ProductDetail';
+import ProductDetail from '../pages/client/ProductDetail';
 
 const routes = [
   {

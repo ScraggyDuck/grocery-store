@@ -12,7 +12,9 @@ export const actFetchAllProductsRequest = (products) => {
       filters = { ...filters, category };
     }
     const { data } = await ProductServices.getProducts(filters);
-    dispatch(actFetchAllProducts(data));
+    // dispatch(actFetchAllProducts(data)
+    //Fake delay fetch
+    setTimeout(() => dispatch(actFetchAllProducts(data)), 3000);
   };
 };
 

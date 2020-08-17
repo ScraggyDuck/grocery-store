@@ -5,8 +5,8 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import routes from '../routes';
-import './App.scss';
+import routes from '../routes/app.route';
+import '../styles/client/pages/App.scss';
 
 export default class App extends Component {
   render() {

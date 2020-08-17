@@ -1,5 +1,5 @@
 import React from 'react';
-import './Offer.scss';
+import '../../styles/client/components/Offer.scss';
 export default function Offer() {
   return (
     <div className='row px-5 py-4 offer-section d-none d-lg-flex m-0'>
