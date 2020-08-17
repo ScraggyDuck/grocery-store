@@ -1,12 +1,12 @@
 import React from 'react';
-import Home from './pages/Home/Home';
 import PageNotFound from './pages/404/404';
+import Home from './pages/Home/Home';
 
 const routes = [
   {
-    path: '/',
-    exact: true,
-    main: ({ history }) => <Home history={history} />,
+    path: '/home',
+    exact: false,
+    main: ({ history, match }) => <Home history={history} match={match} />,
   },
   {
     path: '*',

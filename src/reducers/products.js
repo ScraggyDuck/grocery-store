@@ -7,6 +7,7 @@ const initialState = {
   category: '',
   total: 13,
   isLoadMore: true,
+  loading: false,
 };
 
 const products = (state = initialState, action) => {
@@ -22,6 +23,7 @@ const products = (state = initialState, action) => {
         data: products.data,
         total: products.total,
         isLoadMore,
+        loading: false,
       };
       return newState;
     case Types.LOAD_MORE:
@@ -31,6 +33,7 @@ const products = (state = initialState, action) => {
         ...state,
         limit: newLimit,
         isLoadMore,
+        loading: true,
       };
       return newState;
     case Types.SET_KEYWORD:

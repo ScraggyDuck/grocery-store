@@ -42,6 +42,7 @@ class ProductsContainer extends Component {
         products={products.data}
         loadMore={loadMore}
         isLoadMore={products.isLoadMore}
+        loading={products.loading}
       />
     );
   }

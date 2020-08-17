@@ -9,3 +9,10 @@ export const getProducts = async (filters) => {
   );
   return data;
 };
+
+export const getProductBySlug = async (slug) => {
+  const { data } = await axios.get(
+    `${BaseValue.API_URL}/${BaseValue.GET_PRODUCTS}/${slug}`
+  );
+  return data;
+};

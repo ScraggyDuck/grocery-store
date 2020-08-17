@@ -1,8 +1,6 @@
 .products {
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
   background-color: #f7f7f7;
+  transition: all 0.3s ease;
 
   .btn-load-more {
     padding-left: 15px;
