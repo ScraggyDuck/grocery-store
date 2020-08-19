@@ -6,7 +6,7 @@
   background-size: cover;
 
   .search-bar-container {
-    width: 750px;
+    width: 700px;
     height: 50px;
   }
 
@@ -20,5 +20,24 @@
     font-size: 19px;
     color: rgb(119, 121, 140);
     font-weight: 400;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .banner-container {
+    .banner-title {
+      font-size: 30px;
+    }
+
+    background-position: inherit;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .banner-container {
+    height: 200px;
+    .banner-title {
+      font-size: 17px;
+    }
   }
 }

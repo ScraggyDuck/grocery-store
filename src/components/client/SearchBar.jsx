@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import '../../styles/client/components/SearchBar.scss';
 
 export default function SearchBar({ ...props }) {
-  const { isTop, setKeyword } = props;
+  const { isTop, setKeyword, setSearchMobile } = props;
   const [value, setValue] = useState('');
 
   const onChangeSearchBar = (event) => {
@@ -18,12 +18,18 @@ export default function SearchBar({ ...props }) {
 
   const onClearInput = () => {
     setValue('');
-    setKeyword('');
   };
 
   const onSearch = () => {
     setKeyword(value.trim());
     setValue('');
+    window.scrollTo({
+      top: window.innerHeight + 110,
+      behavior: 'smooth',
+    });
+    if (setSearchMobile) {
+      setSearchMobile(false);
+    }
   };
 
   return (
@@ -35,7 +41,7 @@ export default function SearchBar({ ...props }) {
           'Glocery'
         )}
       </div>
-      <div className='input-group w-100'>
+      <div className='input-group w-100 h-100'>
         <input
           type='text'
           placeholder='Search your books from here'

@@ -9,5 +9,11 @@ export default function SearchBarContainer({ ...props }) {
   const setKeyword = (keyword) => {
     dispatch(actSetKeyword(keyword));
   };
-  return <SearchBar isTop={props.isTop} setKeyword={setKeyword} />;
+  return (
+    <SearchBar
+      isTop={props.isTop}
+      setKeyword={setKeyword}
+      setSearchMobile={props.setSearchMobile}
+    />
+  );
 }

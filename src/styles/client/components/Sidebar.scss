@@ -2,6 +2,14 @@
   position: sticky;
   top: 100px;
 
+  &-mobile {
+    font-weight: 700;
+    color: rgb(13, 17, 54);
+    background-color: #fff;
+    border-bottom: 1px solid #f1f1f1;
+    justify-content: space-between;
+  }
+
   ul {
     list-style: none;
     padding: 40px 30px;
@@ -19,7 +27,8 @@
       color: rgb(13, 17, 54);
       transition: all 0.2s ease;
 
-      &:hover {
+      &:hover,
+      &.active {
         .sidebar-icon svg path {
           fill: rgb(0, 158, 127);
         }

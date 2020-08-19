@@ -6,46 +6,50 @@ const initialState = {
   keyword: '',
   category: '',
   total: 13,
-  isLoadMore: true,
-  loading: false,
+  isLoadMore: false,
+  loading: true,
+  hasMore: true,
 };
 
 const products = (state = initialState, action) => {
   let newState = {};
-  let isLoadMore;
+  let hasMore;
   let { limit, total } = state;
   let { products, keyword, category } = action;
   switch (action.type) {
     case Types.FETCH_PRODUCTS:
-      isLoadMore = total <= limit ? false : true;
+      hasMore = total <= limit ? false : true;
       newState = {
         ...state,
         data: products.data,
         total: products.total,
-        isLoadMore,
         loading: false,
+        hasMore,
+        isLoadMore: false,
       };
       return newState;
     case Types.LOAD_MORE:
       let newLimit = limit + 8;
-      isLoadMore = newLimit > total ? false : true;
+      hasMore = newLimit > total ? false : true;
       newState = {
         ...state,
         limit: newLimit,
-        isLoadMore,
-        loading: true,
+        isLoadMore: true,
+        hasMore,
       };
       return newState;
     case Types.SET_KEYWORD:
       newState = {
         ...state,
         keyword,
+        loading: true,
       };
       return newState;
     case Types.SET_CATEGORY:
       newState = {
         ...state,
         category,
+        loading: true,
       };
       return newState;
     case Types.SET_DEFAULT:
@@ -53,7 +57,8 @@ const products = (state = initialState, action) => {
         ...state,
         limit: 12,
         keyword: '',
-        isLoadMore: true,
+        isLoadMore: false,
+        hasMore: true,
       };
       return newState;
     default:

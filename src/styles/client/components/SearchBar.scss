@@ -52,6 +52,14 @@
       top: 50%;
       transform: translateY(-50%);
       box-shadow: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
     }
   }
 

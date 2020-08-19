@@ -14,7 +14,7 @@ export const actFetchAllProductsRequest = (products) => {
     const { data } = await ProductServices.getProducts(filters);
     // dispatch(actFetchAllProducts(data)
     //Fake delay fetch
-    setTimeout(() => dispatch(actFetchAllProducts(data)), 3000);
+    setTimeout(() => dispatch(actFetchAllProducts(data)), 1000);
   };
 };
 

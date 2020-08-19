@@ -6,7 +6,7 @@ import ProductLoading from './ProductsLoading';
 import Fade from 'react-reveal/Fade';
 
 export default function Products({ ...props }) {
-  const { products, loadMore, isLoadMore, loading, match } = props;
+  const { products, loadMore, isLoadMore, loading, match, hasMore } = props;
 
   const onLoadMoreClick = () => {
     loadMore();
@@ -22,19 +22,17 @@ export default function Products({ ...props }) {
       </Col>
     ));
 
-  if (products.length <= 0) return <ProductLoading />;
-
   return (
     <Row className='products p-2 m-0' fluid='true'>
-      {renderProductList()}
+      {loading ? <ProductLoading /> : renderProductList()}
 
-      <Col className='w-100 text-center'>
-        {loading ? (
+      <div className='w-100 text-center col-12'>
+        {isLoadMore ? (
           <Button type='button' className='btn-load-more my-5'>
             ...
           </Button>
         ) : (
-          isLoadMore && (
+          hasMore && (
             <Button
               type='button'
               onClick={onLoadMoreClick}
@@ -43,7 +41,7 @@ export default function Products({ ...props }) {
             </Button>
           )
         )}
-      </Col>
+      </div>
     </Row>
   );
 }

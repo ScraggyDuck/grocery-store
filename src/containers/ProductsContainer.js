@@ -43,6 +43,7 @@ class ProductsContainer extends Component {
         loadMore={loadMore}
         isLoadMore={products.isLoadMore}
         loading={products.loading}
+        hasMore={products.hasMore}
       />
     );
   }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Route } from 'react-router-dom';
 import Banner from '../../components/client/Banner';
@@ -9,6 +9,15 @@ import ProductsContainer from '../../containers/ProductsContainer';
 import HomeRoute from '../../routes/home.route';
 
 export default function Home({ ...props }) {
+  const productsRef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: productsRef.current.offsetTop - 100,
+      behavior: 'smooth',
+    });
+  }, []);
+
   return (
     <div>
       <TopMenu />
@@ -16,10 +25,10 @@ export default function Home({ ...props }) {
       <Container className='p-0' fluid>
         <Offer />
         <Row className='m-0'>
-          <Col xl={2} lg={3} md={4} className='p-0'>
-            <Sidebar />
+          <Col xl={2} lg={3} className='p-0'>
+            <Sidebar myRef={productsRef} />
           </Col>
-          <Col xl={10} lg={9} md={8} className='p-0'>
+          <Col ref={productsRef} xl={10} lg={9} className='p-0'>
             <ProductsContainer history={props.history} />
           </Col>
         </Row>

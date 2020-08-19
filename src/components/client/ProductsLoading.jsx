@@ -5,63 +5,16 @@ import '../../styles/client/components/ProductsLoading.scss';
 
 export default function () {
   return (
-    <Row>
-      <Col xl='3' lg='4' md='6' sm='6' className='p-0 mb-5'>
-        <div className='product-loading'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Col>
-      <Col xl='3' lg='4' md='6' sm='6' className='p-0 mb-5'>
-        <div className='product-loading'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Col>
-      <Col xl='3' lg='4' md='6' sm='6' className='p-0 mb-5'>
-        <div className='product-loading'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Col>
-      <Col xl='3' lg='4' md='6' sm='6' className='p-0 mb-5'>
-        <div className='product-loading'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Col>
-      <Col xl='3' lg='4' md='6' sm='6' className='p-0 mb-5'>
-        <div className='product-loading'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Col>
-      <Col xl='3' lg='4' md='6' sm='6' className='p-0 mb-5'>
-        <div className='product-loading'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Col>
-      <Col xl='3' lg='4' md='6' sm='6' className='p-0 mb-5'>
-        <div className='product-loading'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Col>
-      <Col xl='3' lg='4' md='6' sm='6' className='p-0 mb-5'>
-        <div className='product-loading'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Col>
+    <Row className='m-0 py-3'>
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+        <Col key={item} xl='3' lg='4' md='6' sm='6' className='mb-5'>
+          <div className='product-loading'>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </Col>
+      ))}
     </Row>
   );
 }
