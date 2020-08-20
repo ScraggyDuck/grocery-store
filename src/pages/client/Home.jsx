@@ -1,12 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { Route } from 'react-router-dom';
 import Banner from '../../components/client/Banner';
 import Offer from '../../components/client/Offer';
 import Sidebar from '../../components/client/Sidebar';
 import TopMenu from '../../components/client/TopMenu';
+import Cart from '../../components/client/Cart';
 import ProductsContainer from '../../containers/ProductsContainer';
-import HomeRoute from '../../routes/home.route';
 
 export default function Home({ ...props }) {
   const productsRef = useRef(null);
@@ -19,7 +18,7 @@ export default function Home({ ...props }) {
   }, []);
 
   return (
-    <div>
+    <>
       <TopMenu />
       <Banner />
       <Container className='p-0' fluid>
@@ -33,17 +32,7 @@ export default function Home({ ...props }) {
           </Col>
         </Row>
       </Container>
-      {HomeRoute && showRoutes(HomeRoute)}
-    </div>
+      <Cart />
+    </>
   );
 }
-
-const showRoutes = (routes) =>
-  routes.map((route, index) => (
-    <Route
-      path={route.path}
-      key={index}
-      exact={route.exact}
-      component={route.main}
-    />
-  ));

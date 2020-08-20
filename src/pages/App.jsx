@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from '../routes/app.route';
 import '../styles/client/pages/App.scss';
 
@@ -13,12 +8,7 @@ export default class App extends Component {
     return (
       <Router>
         <div className='container-fluid p-0'>
-          <Switch>
-            <Route exact path='/'>
-              <Redirect to='/home' />
-            </Route>
-            {this.showRoutes(routes)}
-          </Switch>
+          <Switch>{this.showRoutes(routes)}</Switch>
         </div>
       </Router>
     );

@@ -12,16 +12,22 @@ class ProductsContainer extends Component {
 
   async componentDidUpdate(preProps, preState) {
     const {
-      products: { limit, keyword, category },
+      products: { limit, keyword, category, offset },
     } = this.props;
     const {
-      products: { limit: preLimit, keyword: preKeyword, category: preCategory },
+      products: {
+        limit: preLimit,
+        keyword: preKeyword,
+        category: preCategory,
+        offset: preOffset,
+      },
     } = preProps;
 
     if (
       preLimit !== limit ||
       preKeyword !== keyword ||
-      category !== preCategory
+      category !== preCategory ||
+      offset !== preOffset
     ) {
       const { history } = this.props;
       let filters = keyword ? { keyword } : {};

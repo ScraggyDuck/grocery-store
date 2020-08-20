@@ -1,13 +1,18 @@
 import React from 'react';
-import PageNotFound from '../pages/client/PageNotFound';
 import Home from '../pages/client/Home';
+import PageNotFound from '../pages/client/PageNotFound';
 
 const routes = [
   {
-    path: '/home',
-    exact: false,
+    path: '/',
+    exact: true,
     main: ({ history, match }) => <Home history={history} match={match} />,
   },
+  // {
+  //   path: '/product/:slug',
+  //   exact: false,
+  //   main: ({ history, match }) => <Test history={history} match={match} />,
+  // },
   {
     path: '*',
     exact: false,

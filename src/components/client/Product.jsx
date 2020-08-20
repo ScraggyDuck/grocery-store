@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/client/components/Product.scss';
 import { Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
+import ProductDetail from '../../pages/client/ProductDetail';
 
 export default function Product({ ...props }) {
   const { product } = props;
+  const [show, setShow] = useState(false);
+
   return (
-    <Link to={`/home/product/${product.slug}`} className='text-decoration-none'>
-      <Card className='product'>
+    <>
+      <Card onClick={() => setShow(true)} className='product'>
         <Card.Img variant='top' src={product.image} />
         <Card.Body>
           <h5 className='product-title'>{product.title}</h5>
@@ -21,6 +24,9 @@ export default function Product({ ...props }) {
           </div>
         </Card.Body>
       </Card>
-    </Link>
+      {show && (
+        <ProductDetail product={product} show={show} setShow={setShow} />
+      )}
+    </>
   );
 }

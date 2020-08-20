@@ -1,32 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Modal, Button, Badge, Container, Row, Col } from 'react-bootstrap';
-import '../../styles/client/pages/ProductDetail.scss';
-import * as ProductServices from '../../services/productServices';
+import React from 'react';
+import { Badge, Button, Col, Container, Modal, Row } from 'react-bootstrap';
 import Slider from 'react-slick';
+import '../../styles/client/pages/ProductDetail.scss';
 
 export default function ProductDetail({ ...props }) {
-  const [show, setShow] = useState(false);
-  const [product, setProduct] = useState({});
-
-  const handleClose = () => {
-    setShow(false);
-    props.history.goBack();
-  };
-  console.log(props.match.params);
-
-  useEffect(() => {
-    props.show && setShow(props.show);
-  }, [props.show]);
-
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const {
-        data: { data: productData },
-      } = await ProductServices.getProductBySlug(props.match.params.slug);
-      setProduct(productData);
-    };
-    fetchProduct();
-  }, [props.match.params.slug]);
+  const { product, show, setShow } = props;
 
   const settings = {
     dots: true,
@@ -38,15 +16,13 @@ export default function ProductDetail({ ...props }) {
     initialSlide: 2,
   };
 
-  console.log(product);
-
   return (
     <Container>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Body className='w-100 p-5'>
           {product && (
             <Row>
-              <Button className='btn-close' onClick={handleClose}>
+              <Button className='btn-close' onClick={() => setShow(false)}>
                 X
               </Button>
               <Col md={6} xs={12}>

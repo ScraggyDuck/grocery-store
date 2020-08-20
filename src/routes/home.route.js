@@ -3,7 +3,7 @@ import ProductDetail from '../pages/client/ProductDetail';
 
 const routes = [
   {
-    path: '/home/product/:slug',
+    path: '/product/:slug',
     exact: true,
     main: ({ history, match }) => (
       <ProductDetail history={history} show={true} match={match} />

@@ -9,7 +9,7 @@ import '../../styles/client/components/Sidebar.scss';
 
 export default function Sidebar({ ...props }) {
   const [categories, setCategories] = useState([]);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [category, setCategoryActive] = useState(null);
 
   const dispatch = useDispatch();
@@ -54,7 +54,9 @@ export default function Sidebar({ ...props }) {
   };
   return (
     <div className='sidebar'>
-      <div className='sidebar-mobile d-flex w-100 p-3 align-items-center d-lg-none'>
+      <div
+        onClick={() => setOpen(!open)}
+        className='sidebar-mobile d-flex w-100 p-3 align-items-center d-lg-none'>
         <div className='d-flex align-items-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -69,7 +71,7 @@ export default function Sidebar({ ...props }) {
           </svg>
           <span className='pl-3'>Select your Category</span>
         </div>
-        <div onClick={() => setOpen(!open)}>
+        <div>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='10'
