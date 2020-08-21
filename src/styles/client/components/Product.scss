@@ -2,7 +2,6 @@ $border-radius: 7px;
 
 .product {
   margin: 15px;
-  cursor: pointer;
   border-radius: $border-radius !important;
   border: none !important;
   overflow: hidden;
@@ -18,6 +17,8 @@ $border-radius: 7px;
     height: 230px;
     width: auto;
     object-fit: contain;
+    cursor: pointer;
+
     &:hover {
       transform: scale(1.1);
     }

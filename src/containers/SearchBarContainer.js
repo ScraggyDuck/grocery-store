@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { actSetKeyword } from '../actions/index';
+import { actSetKeyword } from '../actions/productActions';
 import SearchBar from '../components/client/SearchBar';
 
 export default function SearchBarContainer({ ...props }) {

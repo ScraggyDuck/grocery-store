@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actFetchAllProductsRequest, actLoadMore } from '../actions/index';
+import {
+  actFetchAllProductsRequest,
+  actLoadMore,
+} from '../actions/productActions';
 import Products from '../components/client/Products';
 import queryString from 'query-string';
 

@@ -4,8 +4,8 @@ import Banner from '../../components/client/Banner';
 import Offer from '../../components/client/Offer';
 import Sidebar from '../../components/client/Sidebar';
 import TopMenu from '../../components/client/TopMenu';
-import Cart from '../../components/client/Cart';
 import ProductsContainer from '../../containers/ProductsContainer';
+import CartContainer from '../../containers/CartContainer';
 
 export default function Home({ ...props }) {
   const productsRef = useRef(null);
@@ -32,7 +32,7 @@ export default function Home({ ...props }) {
           </Col>
         </Row>
       </Container>
-      <Cart />
+      <CartContainer />
     </>
   );
 }

@@ -2,34 +2,57 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import '../../styles/client/components/Cart.scss';
 
-export default function Cart() {
+export default function Cart({ ...props }) {
   const [showCart, setShowCart] = useState(false);
-  const cart = [1, 2, 3];
+  const { cart, increase, decrease, deleteProduct } = props;
 
   const renderCartItems = (cart) => {
-    return (
-      <div className='cart-item'>
-        <div className='counter'>
-          <div className='increase'>+</div>
-          <div className='quantity'>1</div>
-          <div className='decrease'>-</div>
+    return cart.map((product) => {
+      const { _id, quantity, title, price, unit, image } = product;
+      return (
+        <div key={_id} className='cart-item'>
+          <div className='counter'>
+            <div onClick={() => increase(_id)} className='increase'>+</div>
+            <div className='quantity'>{quantity}</div>
+            <div  onClick={() => decrease(_id)} className='decrease'>-</div>
+          </div>
+          <div className='product-image'>
+            <img className='img-fluid' width='60px' src={image} alt={title} />
+          </div>
+          <div className='product-info'>
+            <div className='product-name'>{title}</div>
+            <div className='product-price'>${price}</div>
+            <div className='total-unit'>
+              {quantity}x{unit}
+            </div>
+          </div>
+          <div className='total-price'>${price * quantity}</div>
+          <div className='btn-delete'  onClick={() => deleteProduct(_id)}>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='10.003'
+              height='10'
+              viewBox='0 0 10.003 10'>
+              <path
+                data-name='_ionicons_svg_ios-close (5)'
+                d='M166.686,165.55l3.573-3.573a.837.837,0,0,0-1.184-1.184l-3.573,3.573-3.573-3.573a.837.837,0,1,0-1.184,1.184l3.573,3.573-3.573,3.573a.837.837,0,0,0,1.184,1.184l3.573-3.573,3.573,3.573a.837.837,0,0,0,1.184-1.184Z'
+                transform='translate(-160.5 -160.55)'
+                fill='currentColor'></path>
+            </svg>
+          </div>
         </div>
-        <div className='product-image'>
-          <img
-            className='img-fluid'
-            width='60px'
-            src='https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/GreenLimes_jrodle.jpg'
-            alt=''
-          />
-        </div>
-        <div className='product-info'>
-          <div className='product-name'>Lime</div>
-          <div className='product-price'>$1.5</div>
-          <div className='total-unit'>1x12 pc(s)</div>
-        </div>
-        <div className='total-price'>$1.50</div>
-      </div>
-    );
+      );
+    });
+  };
+
+  const totalPriceCart = (cart) => {
+    let total = 0;
+    if (cart) {
+      for (let i = 0; i < cart.length; i++) {
+        total += cart[i].quantity * cart[i].price;
+      }
+    }
+    return total;
   };
 
   return (
@@ -64,9 +87,9 @@ export default function Cart() {
               </g>
             </svg>
           </span>
-          0 Item
+          {cart.length} Item
         </span>
-        <span className='cart-price'>$0.00</span>
+        <span className='cart-price'>${totalPriceCart(cart)}</span>
       </div>
 
       <div
@@ -105,7 +128,7 @@ export default function Cart() {
                 </g>
               </svg>
             </span>
-            0 Item
+            {cart.length} Item
           </div>
           <div onClick={() => setShowCart(false)} className='btn-close'>
             <svg
@@ -122,7 +145,7 @@ export default function Cart() {
           </div>
         </div>
         <div className='cart-detail-content'>
-          {cart ? (
+          {cart.length > 0 ? (
             renderCartItems(cart)
           ) : (
             <div className='no-cart h-100 d-flex justify-content-center align-items-center flex-column'>
@@ -250,7 +273,7 @@ export default function Cart() {
         {/* Cart content */}
         <div className='checkout d-flex align-items-center'>
           Checkout
-          <div className='price'>$0.00</div>
+          <div className='price'>${totalPriceCart(cart)}</div>
         </div>
       </div>
     </>
