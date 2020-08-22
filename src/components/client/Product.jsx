@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { actAddToCart } from '../../actions/cartActions';
-import ProductDetail from '../../pages/client/ProductDetail';
 import '../../styles/client/components/Product.scss';
+import ProductQuickView from './ProductQuickView';
 
 export default function Product({ ...props }) {
   const { product } = props;
@@ -38,7 +38,7 @@ export default function Product({ ...props }) {
         </Card.Body>
       </Card>
       {show && (
-        <ProductDetail product={product} show={show} setShow={setShow} />
+        <ProductQuickView product={product} show={show} setShow={setShow} />
       )}
     </>
   );

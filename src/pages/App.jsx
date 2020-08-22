@@ -7,9 +7,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div className='container-fluid p-0'>
-          <Switch>{this.showRoutes(routes)}</Switch>
-        </div>
+        <Switch>{this.showRoutes(routes)}</Switch>
       </Router>
     );
   }
