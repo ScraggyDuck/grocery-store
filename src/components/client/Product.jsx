@@ -3,7 +3,8 @@ import { Button, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { actAddToCart } from '../../actions/cartActions';
 import '../../styles/client/components/Product.scss';
-import ProductQuickView from './ProductQuickView';
+import ModalBox from './ModalBox';
+import ProductInfo from './ProductInfo';
 
 export default function Product({ ...props }) {
   const { product } = props;
@@ -38,7 +39,15 @@ export default function Product({ ...props }) {
         </Card.Body>
       </Card>
       {show && (
-        <ProductQuickView product={product} show={show} setShow={setShow} />
+        <ModalBox show={show} setShow={setShow} isProductInfo={true}>
+          {product && (
+            <ProductInfo
+              product={product}
+              setShow={setShow}
+              isQuickView={true}
+            />
+          )}
+        </ModalBox>
       )}
     </>
   );

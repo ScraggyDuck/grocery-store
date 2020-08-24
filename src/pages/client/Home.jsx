@@ -19,7 +19,7 @@ export default function Home({ ...props }) {
 
   return (
     <>
-      <TopMenu />
+      <TopMenu isHome={true} />
       <Banner />
       <Container className='p-0' fluid>
         <Offer />

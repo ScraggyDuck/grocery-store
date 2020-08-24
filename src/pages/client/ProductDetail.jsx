@@ -14,6 +14,7 @@ export default function ProductDetail() {
       const {
         data: { data: productData },
       } = await ProductServices.getProductBySlug('lime');
+      document.title = `${productData.title} - PickBazar`;
       setProduct(productData);
     };
     getProduct();
@@ -21,7 +22,7 @@ export default function ProductDetail() {
 
   return (
     <div className='product-detail'>
-      <TopMenu />
+      <TopMenu isHome={false} />
       <div className='product-info-container'>
         {product && <ProductInfo product={product} />}
       </div>

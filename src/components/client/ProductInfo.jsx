@@ -2,9 +2,10 @@ import React from 'react';
 import { Badge, Button, Col, Row } from 'react-bootstrap';
 import Slider from 'react-slick';
 import '../../styles/client/components/ProductInfo.scss';
+import { Link } from 'react-router-dom';
 
 export default function ProductInfo({ ...props }) {
-  const { product } = props;
+  const { product, isQuickView, setShow } = props;
 
   const settings = {
     dots: true,
@@ -17,8 +18,24 @@ export default function ProductInfo({ ...props }) {
   };
 
   return (
-    <Row className='bg-white p-4 product-info'>
-      <Col md={6} xs={12} className='p-lg-5'>
+    <Row
+      className={`bg-white product-info position-relative ${
+        isQuickView ? '' : 'p-4'
+      }`}>
+      {isQuickView && (
+        <Button onClick={() => setShow(false)} className='btn-close'>
+          X
+        </Button>
+      )}
+      {!isQuickView && (
+        <Link to='/'>
+          <Button className='btn-back'>
+            <i className='fa fa-arrow-left mr-2' aria-hidden='true'></i>
+            Back
+          </Button>
+        </Link>
+      )}
+      <Col md={6} xs={12} className={`${isQuickView ? '' : 'p-lg-5'}`}>
         <Slider {...settings}>
           {product.gallery &&
             product.gallery.map((img, index) => (
@@ -32,7 +49,7 @@ export default function ProductInfo({ ...props }) {
             ))}
         </Slider>
       </Col>
-      <Col className='p-lg-5 pt-5' md={6}>
+      <Col className={`${isQuickView ? '' : 'p-lg-5 pt-5'}`} md={6}>
         <div className='product-header d-flex align-items-center mb-2'>
           <div className='product-title mr-3'>{product.title}</div>
           <div className='product-price'>{product.price}$</div>
@@ -54,6 +71,14 @@ export default function ProductInfo({ ...props }) {
               </Badge>
             ))}
         </div>
+        {isQuickView && product && (
+          <Link to={`/product/${product.slug}`}>
+            <Button className='btn-cart mt-5'>
+              Go to detail
+              <i className='fa fa-arrow-right ml-2' aria-hidden='true'></i>
+            </Button>
+          </Link>
+        )}
       </Col>
     </Row>
   );

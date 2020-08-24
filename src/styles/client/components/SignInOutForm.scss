@@ -1,0 +1,96 @@
+.form {
+    transition: all 3s ease-in;
+
+    .title {
+        margin-bottom: 10px;
+        font-family: Poppins, sans-serif;
+        font-size: 21px;
+        font-weight: 600;
+        color: rgb(0, 158, 127);
+    }
+
+    .description {
+        margin-bottom: 30px;
+        font-family: Lato, sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: rgb(119, 121, 140);
+        display: block;
+    }
+
+    .btn-submit {
+        font-size: 15px;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 158, 127);
+        height: 48px;
+        border: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: rgb(1, 147, 118) !important;
+            box-shadow: none !important;
+            outline: none;
+        }
+    }
+    .form-control {
+        display: block;
+        width: 100%;
+        appearance: none;
+        font-family: Lato, sans-serif;
+        font-size: 15px;
+        line-height: inherit;
+        color: rgb(13, 17, 54);
+        height: 48px;
+        background-color: rgb(247, 247, 247);
+        margin-bottom: 10px;
+        padding: 0px 18px;
+        border-width: 1px;
+        border-style: solid;
+        border-image: initial;
+        border-color: rgb(241, 241, 241);
+        border-radius: 6px;
+        transition: all 0.25s ease 0s;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: rgb(0, 158, 127);
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    }
+
+    .terms {
+        font-family: Lato, sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        color: rgb(119, 121, 140);
+        text-align: center;
+        width: 100%;
+        margin: 0px;
+        padding: 20px 0px 30px;
+
+        a {
+            font-weight: 700;
+            color: rgb(66, 133, 244);
+            text-decoration: underline;
+        }
+    }
+
+    p {
+        font-family: Lato, sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: rgb(119, 121, 140);
+        margin: 30px 0;
+        .sign-up,
+        .sign-in {
+            font-weight: 700;
+            color: rgb(0, 158, 127);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
