@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../pages/client/Home';
 import PageNotFound from '../pages/client/PageNotFound';
 import ProductDetail from '../pages/client/ProductDetail';
+import Checkout from '../pages/client/Checkout';
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     main: ({ history, match }) => (
       <ProductDetail history={history} match={match} />
     ),
+  },
+  {
+    path: '/checkout',
+    exact: false,
+    main: ({ history, match }) => <Checkout history={history} match={match} />,
   },
   {
     path: '*',

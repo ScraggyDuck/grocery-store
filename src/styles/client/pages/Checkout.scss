@@ -1,0 +1,210 @@
+.your-order {
+    position: sticky !important;
+    top: 100px;
+    h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: rgb(13, 17, 54);
+        margin-bottom: 40px;
+    }
+
+    .checkout-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: calc(15px);
+        font-weight: 400;
+        color: rgb(119, 121, 140);
+        margin-bottom: 25px;
+
+        b {
+            font-size: calc(14px);
+            font-weight: 700;
+            color: rgb(13, 17, 54);
+        }
+        span {
+            font-size: 11px;
+        }
+
+        &.total {
+            font-weight: 700;
+            color: rgb(13, 17, 54);
+            margin-top: 30px;
+        }
+    }
+
+    .checkout-calculation {
+        margin-top: 20px;
+        border-top: 1px solid rgb(230, 230, 230);
+        padding: 20px 0px;
+    }
+}
+
+.card-header {
+    justify-content: space-between;
+    border: none !important;
+    background-color: #fff !important;
+    margin-bottom: 35px !important;
+    .title {
+        font-size: 21px;
+        font-weight: 400;
+        color: rgb(13, 17, 54);
+        span {
+            color: rgb(255, 255, 255);
+            font-size: 19px;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background-color: rgb(0, 158, 127);
+            margin-right: 15px;
+            border-radius: 50%;
+            text-align: center;
+        }
+    }
+
+    .option-add {
+        font-size: 13px;
+        font-weight: 700;
+        color: rgb(0, 158, 127);
+        cursor: pointer;
+    }
+}
+
+.card {
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 16px 0px;
+    padding: 30px 30px 20px;
+    border: none !important;
+    border-radius: 0 !important;
+
+    p {
+        font-size: 13px;
+        font-weight: 400;
+        color: rgb(119, 121, 140);
+        line-height: 1.5;
+        margin-top: 30px;
+        a {
+            font-size: 13px;
+            font-weight: 400;
+            color: rgb(255, 91, 96);
+            margin-left: 5px;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+    }
+
+    .btn-checkout {
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 158, 127);
+        flex-shrink: 0;
+        text-align: center;
+
+        padding: 15px 0;
+        transition: all 0.3s ease 0s;
+        border-radius: 6px;
+        width: 100%;
+
+        &:hover {
+            color: rgb(255, 255, 255);
+            background-color: rgb(1, 147, 118);
+        }
+    }
+}
+
+.card-content {
+    .item {
+        width: 100%;
+        background-color: #eee;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 400;
+        color: rgb(13, 17, 54);
+        line-height: 24px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 6px;
+        border: 1px solid rgb(247, 247, 247);
+        padding: 15px 20px;
+        position: relative;
+
+        &:hover {
+            .btn-delete,
+            .btn-edit {
+                opacity: 1;
+            }
+        }
+
+        &.active {
+            background-color: rgb(255, 255, 255);
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(0, 158, 127);
+            border-image: initial;
+        }
+
+        .btn-delete,
+        .btn-edit {
+            width: 20px;
+            height: 20px;
+            font-size: 11px;
+            line-height: 20px;
+            text-align: center;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            border-radius: 50%;
+            position: absolute;
+            transition: opacity 0.3s ease-in;
+            opacity: 0;
+        }
+
+        .btn-edit {
+            background-color: rgb(0, 158, 127);
+            right: 40px;
+            top: 5px;
+        }
+
+        .btn-delete {
+            background-color: rgb(255, 91, 96);
+            right: 10px;
+            top: 5px;
+        }
+
+        .name {
+            font-size: 13px;
+            font-weight: 700;
+            color: rgb(13, 17, 54);
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+        .content {
+            font-size: 15px;
+            font-weight: 400;
+            color: rgb(66, 69, 97);
+        }
+    }
+}
+
+.payment-method {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    .payment-item {
+        color: rgb(0, 158, 127);
+        border: 2px solid rgb(0, 158, 127);
+        background-color: #eee;
+        border-radius: 5px;
+        padding: 30px 100px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in;
+
+        &.active {
+            color: #fff;
+            background-color: rgb(0, 158, 127);
+            border-color: rgb(0, 158, 127);
+        }
+    }
+}
