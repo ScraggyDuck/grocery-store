@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../../styles/client/pages/Checkout.scss';
+import Card from '../../components/client/Card';
 
 export default function Checkout() {
   return (
@@ -137,50 +138,11 @@ export default function Checkout() {
             </div>
           </div>
           {/* Delivery Schedule */}
-          <div className='contact-number card'>
-            <div className='card-header d-flex p-0'>
-              <div className='title d-flex align-items-center'>
-                <span>3</span>
-                Contact Number
-              </div>
-              <div className='option-add'>
-                <i className='fa fa-plus mr-2' aria-hidden='true'></i>
-                Add contact
-              </div>
-            </div>
-            <div className='card-content row p-0 m-0'>
-              <div className='col-md-4'>
-                <div className='item active'>
-                  <div className='name'>Home</div>
-                  <div className='content'>
-                    27 Street, 2569 Heritage Road Visalia, CA 93291
-                  </div>
-                  <div className='btn-edit'>
-                    <i className='fa fa-pencil' aria-hidden='true'></i>
-                  </div>
-                  <div className='btn-delete'>
-                    <i className='fa fa-trash' aria-hidden='true'></i>
-                  </div>
-                </div>
-              </div>
-              {/* Item */}
-              <div className='col-md-4'>
-                <div className='item'>
-                  <div className='name'>Home</div>
-                  <div className='content'>
-                    27 Street, 2569 Heritage Road Visalia, CA 93291
-                  </div>
-                  <div className='btn-edit'>
-                    <i className='fa fa-pencil' aria-hidden='true'></i>
-                  </div>
-                  <div className='btn-delete'>
-                    <i className='fa fa-trash' aria-hidden='true'></i>
-                  </div>
-                </div>
-              </div>
-              {/* Item */}
-            </div>
-          </div>
+          <Card
+            className='contact-number'
+            hasAdd={true}
+            index={3}
+            title='Contact Number'></Card>
           {/* Contact Number */}
           <div className='payment-option card'>
             <div className='card-header d-flex p-0'>

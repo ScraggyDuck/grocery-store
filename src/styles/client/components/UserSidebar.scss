@@ -1,0 +1,38 @@
+.user-sidebar {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 6px;
+  height: 380px;
+
+  .sidebar-top,
+  .sidebar-bottom {
+    padding: 40px 0;
+    height: 50%;
+  }
+
+  .sidebar-bottom {
+    background-color: rgb(247, 247, 247);
+  }
+
+  .sidebar-menu {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(13, 17, 54);
+    transition: all 0.35s ease 0s;
+    padding: 15px 60px;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+
+    &:hover,
+    &.active {
+      color: rgb(0, 158, 127);
+    }
+
+    &.active {
+      border-left: 5px solid rgb(0, 158, 127);
+    }
+
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,111 @@
+.card-header {
+  justify-content: space-between;
+  border: none !important;
+  background-color: #fff !important;
+  margin-bottom: 35px !important;
+  .title {
+    font-size: 21px;
+    font-weight: 400;
+    color: rgb(13, 17, 54);
+    span {
+      color: rgb(255, 255, 255);
+      font-size: 19px;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      background-color: rgb(0, 158, 127);
+      margin-right: 15px;
+      border-radius: 50%;
+      text-align: center;
+    }
+  }
+
+  .option-add {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgb(0, 158, 127);
+    cursor: pointer;
+  }
+}
+
+.card {
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 16px 0px;
+  padding: 30px 30px 20px;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.card-content {
+  .item {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(13, 17, 54);
+    line-height: 24px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid rgb(247, 247, 247);
+    padding: 15px 20px;
+    position: relative;
+
+    &:hover {
+      .btn-delete,
+      .btn-edit {
+        opacity: 1;
+      }
+    }
+
+    &.active {
+      background-color: rgb(255, 255, 255);
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(0, 158, 127);
+      border-image: initial;
+    }
+
+    .btn-delete,
+    .btn-edit {
+      width: 20px;
+      height: 20px;
+      font-size: 11px;
+      line-height: 20px;
+      text-align: center;
+      cursor: pointer;
+      color: rgb(255, 255, 255);
+      border-radius: 50%;
+      position: absolute;
+      transition: opacity 0.3s ease-in;
+      opacity: 0;
+    }
+
+    .btn-edit {
+      background-color: rgb(0, 158, 127);
+      right: 40px;
+      top: 5px;
+    }
+
+    .btn-delete {
+      background-color: rgb(255, 91, 96);
+      right: 10px;
+      top: 5px;
+    }
+
+    .name {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgb(13, 17, 54);
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+    .content {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgb(66, 69, 97);
+    }
+  }
+}

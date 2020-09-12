@@ -3,6 +3,7 @@ import Home from '../pages/client/Home';
 import PageNotFound from '../pages/client/PageNotFound';
 import ProductDetail from '../pages/client/ProductDetail';
 import Checkout from '../pages/client/Checkout';
+import Profile from '../pages/client/Profile';
 
 const routes = [
   {
@@ -21,6 +22,11 @@ const routes = [
     path: '/checkout',
     exact: false,
     main: ({ history, match }) => <Checkout history={history} match={match} />,
+  },
+  {
+    path: '/profile',
+    exact: false,
+    main: ({ history, match }) => <Profile history={history} match={match} />,
   },
   {
     path: '*',
